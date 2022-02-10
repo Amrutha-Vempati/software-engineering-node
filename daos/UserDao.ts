@@ -3,6 +3,16 @@ import UserModel from "../mongoose/UserModel";
 import UserDaoI from "../interfaces/UserDao";
 
 export default class UserDao implements UserDaoI {
+    // static userDao: UserDao = new UserDao();
+    // static getInstance(): UserDao { return this.userDao; }
+    private static userDao: UserDao | null = null;
+    public static getInstance = (): UserDao => {
+        if(UserDao.userDao === null) {
+            UserDao.userDao = new UserDao();
+        }
+        return UserDao.userDao;
+    }
+    private constructor() {}
 
     async findAllUsers(): Promise<User[]> {
         return await UserModel.find();
