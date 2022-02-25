@@ -1,7 +1,16 @@
+/**
+ * @file Implements DAO managing data storage of users. Uses mongoose UserModel
+ * to integrate with MongoDB
+ */
 import User from "../models/users/User";
 import UserModel from "../mongoose/users/UserModel";
 import UserDaoI from "../interfaces/UserDao";
 
+/**
+ * @class UserDao Implements Data Access Object managing data storage
+ * of Users
+ * @property {UserDao} userDao Private single instance of UserDao
+ */
 export default class UserDao implements UserDaoI {
     // static userDao: UserDao = new UserDao();
     // static getInstance(): UserDao { return this.userDao; }

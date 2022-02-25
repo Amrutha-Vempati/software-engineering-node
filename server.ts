@@ -16,6 +16,7 @@ const connectionString = "mongodb+srv://amrutha_v:lakshmi_v@cluster0.bchg8.mongo
 mongoose.connect(connectionString);
 
 const app = express();
+app.use(express.json());
 
 app.get('/hello', (req: Request, res: Response) =>
     res.send('Hello World!'));

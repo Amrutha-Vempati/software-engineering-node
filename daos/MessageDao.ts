@@ -1,7 +1,16 @@
+/**
+ * @file Implements DAO managing data storage of Messages. Uses mongoose MessageModel
+ * to integrate with MongoDB
+ */
 import MessageDaoI from "../interfaces/MessageDaoI";
 import MessageModel from "../mongoose/messages/MessageModel";
 import Message from "../models/messages/Message";
 
+/**
+ * @class MessageDao Implements Data Access Object managing data storage
+ * of Message
+ * @property {MessageDao} messageDao Private single instance of MessageDao
+ */
 export default class MessageDao implements MessageDaoI {
 
     private static messageDao: MessageDao | null = null;
@@ -27,9 +36,9 @@ export default class MessageDao implements MessageDaoI {
             .populate("message")
             .exec();
 
-    userSendMessageUser = async (uid1: string, uid2: string): Promise<any> =>
-        MessageModel.create({userSent: uid1, userReceived: uid2});
+    userSendMessageUser = async (sender: string, receiver: string): Promise<any> =>
+        MessageModel.create({userSent: sender, userReceived: receiver});
 
-    userDeletesMessage = async (uid1: string, uid2: string): Promise<any> =>
-        MessageModel.deleteOne({userSent: uid1, userReceived: uid2});
+    userDeletesMessage = async (sender: string, receiver: string): Promise<any> =>
+        MessageModel.deleteOne({userSent: sender, userReceived: receiver});
 }

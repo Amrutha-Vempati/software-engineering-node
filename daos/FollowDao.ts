@@ -1,7 +1,18 @@
+/**
+ * @file Implements DAO managing data storage of Follows. Uses mongoose FollowsModel
+ * to integrate with MongoDB
+ */
+
+
 import FollowDaoI from "../interfaces/FollowDaoI";
 import FollowsModel from "../mongoose/followers/FollowsModel";
 import Follow from "../models/follows/Follow";
 
+/**
+ * @class FollowDao Implements Data Access Object managing data storage
+ * of Tuits
+ * @property {FollowDao} followDao Private single instance of FollowDao
+ */
 export default class FollowDao implements FollowDaoI {
 
     private static followDao: FollowDao | null = null;
