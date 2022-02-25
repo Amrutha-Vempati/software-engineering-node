@@ -1,4 +1,4 @@
-import MessageDaoI from "../Interfaces/MessageDaoI";
+import MessageDaoI from "../interfaces/MessageDaoI";
 import MessageModel from "../mongoose/messages/MessageModel";
 import Message from "../models/messages/Message";
 
