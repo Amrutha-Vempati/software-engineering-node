@@ -19,15 +19,17 @@ import mongoose from "mongoose";
 var cors = require('cors')
 
 // build the connection string
-const PROTOCOL = "mongodb+srv";
-const DB_USERNAME = process.env.DB_USERNAME;
-const DB_PASSWORD = process.env.DB_PASSWORD;
-const HOST = "cluster0.m8jeh.mongodb.net";
-const DB_NAME = "myFirstDatabase";
-const DB_QUERY = "retryWrites=true&w=majority";
-const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;
+// const PROTOCOL = "mongodb+srv";
+// const DB_USERNAME = process.env.DB_USERNAME;
+// const DB_PASSWORD = process.env.DB_PASSWORD;
+// const HOST = "cluster0.m8jeh.mongodb.net";
+// const DB_NAME = "myFirstDatabase";
+// const DB_QUERY = "retryWrites=true&w=majority";
+// const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;
+const connectionString = "mongodb+srv://amrutha_v:lakshmi_v@cluster0.bchg8.mongodb.net/Tuiter?retryWrites=true&w=majority";// connect to the database
+
 // connect to the database
-mongoose.connect(connectionString);
+mongoose.connect(connectionString).then(_ => console.log("Connected")).catch(_ => console.log("Connection Issue"));
 
 const app = express();
 app.use(express.json());
