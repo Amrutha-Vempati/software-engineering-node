@@ -22,8 +22,8 @@ var cors = require('cors')
 // const PROTOCOL = "mongodb+srv";
 // const DB_USERNAME = process.env.DB_USERNAME;
 // const DB_PASSWORD = process.env.DB_PASSWORD;
-// const HOST = "cluster0.m8jeh.mongodb.net";
-// const DB_NAME = "myFirstDatabase";
+// const HOST = "cluster0.bchg8.mongodb.net";
+// const DB_NAME = "Tuiter";
 // const DB_QUERY = "retryWrites=true&w=majority";
 // const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;
 const connectionString = "mongodb+srv://amrutha_v:lakshmi_v@cluster0.bchg8.mongodb.net/Tuiter?retryWrites=true&w=majority";// connect to the database
