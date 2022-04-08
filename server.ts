@@ -26,7 +26,7 @@ var cors = require('cors')
 // const DB_NAME = "Tuiter";
 // const DB_QUERY = "retryWrites=true&w=majority";
 // const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;
-const connectionString = "mongodb+srv://amrutha_v:lakshmi_v@cluster0.bchg8.mongodb.net/Tuiter?retryWrites=true&w=majority";// connect to the database
+const connectionString = "mongodb+srv://Amrutha:Lakshmi@cluster0.bchg8.mongodb.net/Tuiter?retryWrites=true&w=majority";// connect to the database
 
 // connect to the database
 mongoose.connect(connectionString).then(_ => console.log("Connected")).catch(_ => console.log("Connection Issue"));
