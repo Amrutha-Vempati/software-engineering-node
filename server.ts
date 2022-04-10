@@ -15,6 +15,8 @@ import CourseController from "./controllers/CourseController";
 import UserController from "./controllers/UserController";
 import TuitController from "./controllers/TuitController";
 import LikeController from "./controllers/LikeController";
+import DislikeController from "./controllers/DislikeController";
+
 import SessionController from "./controllers/SessionController";
 import AuthenticationController from "./controllers/AuthenticationController";
 import mongoose from "mongoose";
@@ -23,25 +25,26 @@ const cors = require("cors");
 const session = require("express-session");
 
 // build the connection string
-// const PROTOCOL = "mongodb+srv";
-// const DB_USERNAME = process.env.DB_USERNAME;
-// const DB_PASSWORD = process.env.DB_PASSWORD;
-// const HOST = "cluster0.m8jeh.mongodb.net";
-// const DB_NAME = "myFirstDatabase";
-// const DB_QUERY = "retryWrites=true&w=majority";
-const connectionString = "mongodb+srv://amrutha_v:lakshmi_v@cluster0.bchg8.mongodb.net/Tuiter?retryWrites=true&w=majority";// connect to the database
+const PROTOCOL = "mongodb+srv";
+const DB_USERNAME = process.env.DB_USERNAME;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+const HOST = "cluster0.bchg8.mongodb.net";
+const DB_NAME = "Tuiter";
+const DB_QUERY = "retryWrites=true&w=majority";
+//const connectionString = "mongodb+srv://amrutha_v:lakshmi_v@cluster0.bchg8.mongodb.net/Tuiter?retryWrites=true&w=majority";// connect to the database
+const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;
 mongoose.connect(connectionString).then(_ => console.log("Connected"));
 
 const app = express();
 app.use(cors({
     credentials: true,
-    //origin: process.env.CORS_ORIGIN
-    origin: "http://localhost:3000"
+    origin: process.env.CORS_ORIGIN
+    //origin: "http://localhost:3000"
 }));
 
 let sess = {
-    //secret: process.env.EXPRESS_SESSION_SECRET,
-    secret: "sample_secret",
+    secret: process.env.EXPRESS_SESSION_SECRET,
+    //secret: "sample_secret",
     saveUninitialized: true,
     resave: true,
     cookie: {
@@ -68,6 +71,7 @@ const courseController = new CourseController(app);
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
 const likesController = LikeController.getInstance(app);
+const dislikesController = DislikeController.getInstance(app);
 SessionController(app);
 AuthenticationController(app);
 GroupController(app);
